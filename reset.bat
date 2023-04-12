@@ -24,4 +24,21 @@ del /F /Q %APPDATA%\Microsoft\Windows\Recent\CustomDestinations\*
 taskkill /f /im explorer.exe
 start explorer.exe
 
+echo var oShell = new ActiveXObject("WScript.Shell"); >> vd.js
+set "line=for (var i=0; i<50; i++){"
+setlocal EnableDelayedExpansion
+(
+echo !line! 
+) >> vd.js
+echo oShell.SendKeys(String.fromCharCode(0xAE)); >> vd.js
+echo } >> vd.js
+
+timeout /t 1
+
+cscript /e:jscript vd.js
+
+timeout /t 1
+
+del /F/ Q vd.js
+
 start chrome https://docs.google.com/forms/d/e/1FAIpQLSdpeyvOBks6QBCz8PJeVibY6jwf7VNbJ9GCxjv4CpvvuRl9ew/viewform

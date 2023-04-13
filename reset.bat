@@ -44,6 +44,17 @@ timeout /t 1
      :: Deletes Temporary JavaScript File ::
 del /F/ Q vd.js
 
+:: Change Laptop Lid Close Setting: Do Nothing
+:: Note: Power Scheme = 'Balanced'
+     :: Plugged In
+powercfg /setACvalueIndex scheme_current sub_buttons lidAction 0
+     :: On Battery
+powercfg /setDCvalueIndex scheme_current sub_buttons lidAction 0
+     :: Activate
+powercfg /setActive scheme_current
+powercfg /setActive scheme_current
+
+
 :: Opens Chrome to URL in Maximized Mode
 if exist "%localappdata%\google\chrome\application\chrome.exe" set file_found="yes" 
 if not exist "%localappdata%\google\chrome\application\chrome.exe" set file_found="no" 
@@ -58,3 +69,5 @@ if not exist "%programfiles(x86)%\google\chrome\application\chrome.exe" set file
 if %file_found%=="yes" set chrome_exe="%programfiles(x86)%\google\chrome\application\chrome.exe" 
 
 %chrome_exe% --start-maximized --app=<URL>
+
+exit

@@ -10,4 +10,6 @@
 
 - Reduces volume to 0 and mutes
 
-- Opens chrome (maximized) to a URL
+- Alters closing lid settings to `Do Nothing`
+
+- Opens chrome (maximized) to a specified URL

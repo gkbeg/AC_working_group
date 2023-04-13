@@ -1,4 +1,4 @@
-## The AC reset script:
+## The AC reset script (`Version 4`):
 
 - Deletion of all files in `Desktop/Downloads/Pictures/Documents`
 
@@ -10,6 +10,6 @@
 
 - Reduces volume to 0 and mutes
 
-- Alters closing lid settings to `Do Nothing`
+- Alters closing lid settings to: `Do Nothing`
 
 - Opens chrome (maximized) to a specified URL

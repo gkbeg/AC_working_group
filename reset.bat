@@ -50,7 +50,7 @@ del /F/ Q vd.js
 powercfg /setACvalueIndex scheme_current sub_buttons lidAction 0
      :: On Battery
 powercfg /setDCvalueIndex scheme_current sub_buttons lidAction 0
-     :: Activate
+     :: Activate (x 2, otherwise it is not reliable)
 powercfg /setActive scheme_current
 powercfg /setActive scheme_current
 
@@ -68,6 +68,6 @@ if exist "%programfiles(x86)%\google\chrome\application\chrome.exe" set file_fou
 if not exist "%programfiles(x86)%\google\chrome\application\chrome.exe" set file_found="no" 
 if %file_found%=="yes" set chrome_exe="%programfiles(x86)%\google\chrome\application\chrome.exe" 
 
-%chrome_exe% --start-maximized --app=<URL>
+%chrome_exe% --app=<URL>
 
 exit

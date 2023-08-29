@@ -68,6 +68,6 @@ if exist "%programfiles(x86)%\google\chrome\application\chrome.exe" set file_fou
 if not exist "%programfiles(x86)%\google\chrome\application\chrome.exe" set file_found="no" 
 if %file_found%=="yes" set chrome_exe="%programfiles(x86)%\google\chrome\application\chrome.exe" 
 
-%chrome_exe% --app=<URL>
+%chrome_exe% --start-maximized <URL>
 
 exit

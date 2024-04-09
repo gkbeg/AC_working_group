@@ -4,20 +4,26 @@
 taskkill /F /IM chrome.exe /T
 
 :: Set Paths :: 
-set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data
+set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\
 set Documents=C:\Users\%USERNAME%\Documents\
 set Desktop=C:\Users\%USERNAME%\Desktop\
 set Pictures=C:\Users\%USERNAME%\Pictures\
 set Downloads=C:\Users\%USERNAME%\Downloads\
 
-:: Delete Files ::
-del /q /s /f "%ChromeDir%"
-rd /s /q "%ChromeDir%"
-
 del /q /s /f "%Documents%"
 del /q /s /f "%Desktop%"
 del /q /s /f "%Pictures%"
 del /q /s /f "%Downloads%"
+
+:: Delete Files ::
+echo Clearing Chrome Data ... 
+:: del /q /s /f "C:\Users\%USERNAME%\AppData\Local\Google\Chrome\Default\History"
+del /q /s /f "%ChromeDir%"
+rd /s /q "%ChromeDir%"
+
+echo Clearing the Recycle Bin...
+powershell.exe -ExecutionPolicy Bypass -Command "Clear-RecycleBin -Force"2>NUL
+echo Recycle Bin cleared.
 
 del /F /Q %APPDATA%\Microsoft\Windows\Recent\*
 del /F /Q %APPDATA%\Microsoft\Windows\Recent\AutomaticDestinations\*
@@ -55,6 +61,8 @@ powercfg /setActive scheme_current
 powercfg /setActive scheme_current
 
 
+
+
 :: Opens Chrome to URL in Maximized Mode
 if exist "%localappdata%\google\chrome\application\chrome.exe" set file_found="yes" 
 if not exist "%localappdata%\google\chrome\application\chrome.exe" set file_found="no" 
@@ -68,6 +76,5 @@ if exist "%programfiles(x86)%\google\chrome\application\chrome.exe" set file_fou
 if not exist "%programfiles(x86)%\google\chrome\application\chrome.exe" set file_found="no" 
 if %file_found%=="yes" set chrome_exe="%programfiles(x86)%\google\chrome\application\chrome.exe" 
 
-%chrome_exe% --start-maximized <URL>
 
-exit
+start "" %chrome_exe% --start-maximized <URL>
